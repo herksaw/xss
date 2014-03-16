@@ -3,7 +3,8 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>Game Event</name>
     <events>
-        <variable constant="0" name="EnemyVariation" sid="3357982535232257" static="0" type="number">0</variable>
+        <variable constant="0" name="EnemyTimer" sid="9652536906683443" static="0" type="number">2</variable>
+        <variable constant="0" name="EnemyColorVariation" sid="3357982535232257" static="0" type="number">0</variable>
         <variable constant="0" name="PlayerPlane" sid="7835224101687629" static="0" type="text">Blue</variable>
         <variable constant="0" name="UseMouse" sid="3565339359927593" static="0" type="number">0</variable>
         <variable constant="0" name="CurrentLevel" sid="3735789936954935" static="0" type="number">0</variable>
@@ -92,30 +93,419 @@
                         </event-block>
                     </sub-events>
                 </event-block>
-                <event-block sid="5426458741816665">
+                <event-block collapsed="1" disabled="1" sid="5426458741816665">
                     <conditions>
                         <condition id="-6" name="Every X seconds" sid="9581734528633828" type="System">
-                            <param id="0" name="Interval (seconds)">2.0</param>
+                            <param id="0" name="Interval (seconds)">EnemyTimer</param>
                         </condition>
                     </conditions>
-                    <actions />
+                    <actions>
+                        <action id="-9" name="Set value" sid="2855803037570375" type="System">
+                            <param id="0" name="Variable">EnemyColorVariation</param>
+                            <param id="1" name="Value">floor(random(0, 4))</param>
+                        </action>
+                    </actions>
                     <sub-events>
-                        <event-block sid="4413361911793874">
+                        <event-block sid="8783612858458488">
                             <conditions>
-                                <condition id="-14" name="Compare variable" sid="4415206583816939" type="System">
-                                    <param id="0" name="Variable">EnemyVariation</param>
-                                    <param id="1" name="Comparison">0</param>
-                                    <param id="2" name="Value">0</param>
+                                <condition id="-7" name="Compare instance variable" sid="167679901772883" type="Enemy">
+                                    <param id="0" name="Instance variable">isTyped</param>
+                                    <param id="1" name="Comparison">1</param>
+                                    <param id="2" name="Value">1</param>
                                 </condition>
+                                <condition id="-3" inverted="1" name="Is on-screen" sid="5153833302043201" type="Enemy" />
                             </conditions>
-                            <actions>
-                                <action id="-3" name="Create object" sid="9077672341528728" type="System">
-                                    <param id="0" name="Object to create">EnemyBlue</param>
-                                    <param id="1" name="Layer">&quot;Game&quot;</param>
-                                    <param id="2" name="X">floor(random(0, LayoutWidth - (Enemy.Width / 2)))</param>
-                                    <param id="3" name="Y">-200</param>
-                                </action>
-                            </actions>
+                            <actions />
+                            <sub-events>
+                                <event-block collapsed="1" sid="3700593601188853">
+                                    <conditions>
+                                        <condition id="-14" name="Compare variable" sid="181548243513862" type="System">
+                                            <param id="0" name="Variable">EnemyColorVariation</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">0</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-3" name="Create object" sid="4233460961334414" type="System">
+                                            <param id="0" name="Object to create">EnemyBlue</param>
+                                            <param id="1" name="Layer">&quot;Game&quot;</param>
+                                            <param id="2" name="X">floor(random(0, LayoutWidth - (Enemy.Width / 2)))</param>
+                                            <param id="3" name="Y">-200</param>
+                                        </action>
+                                        <action id="-10" name="Set value" sid="2463350784645133" type="Enemy">
+                                            <param id="0" name="Instance variable">type</param>
+                                            <param id="1" name="Value">floor(random(0, 5))</param>
+                                        </action>
+                                        <action id="-10" name="Set value" sid="6621587209558852" type="Enemy">
+                                            <param id="0" name="Instance variable">isTyped</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                    </actions>
+                                    <sub-events>
+                                        <event-block sid="7720102130954001">
+                                            <conditions>
+                                                <condition id="-7" name="Compare instance variable" sid="9161199672071413" type="Enemy">
+                                                    <param id="0" name="Instance variable">type</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">0</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="5" name="Set frame" sid="727255379671867" type="Enemy">
+                                                    <param id="0" name="Frame number">0</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="1684247929221666">
+                                            <conditions>
+                                                <condition id="-7" name="Compare instance variable" sid="6356117045755616" type="Enemy">
+                                                    <param id="0" name="Instance variable">type</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">1</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="5" name="Set frame" sid="6892465646153397" type="Enemy">
+                                                    <param id="0" name="Frame number">1</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="3647003121140429">
+                                            <conditions>
+                                                <condition id="-7" name="Compare instance variable" sid="2941295175070049" type="Enemy">
+                                                    <param id="0" name="Instance variable">type</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">2</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="5" name="Set frame" sid="9766697866156969" type="Enemy">
+                                                    <param id="0" name="Frame number">2</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="6228547818805683">
+                                            <conditions>
+                                                <condition id="-7" name="Compare instance variable" sid="7258954331776031" type="Enemy">
+                                                    <param id="0" name="Instance variable">type</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">3</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="5" name="Set frame" sid="797303165900635" type="Enemy">
+                                                    <param id="0" name="Frame number">3</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="198834425417532">
+                                            <conditions>
+                                                <condition id="-7" name="Compare instance variable" sid="7197312392959656" type="Enemy">
+                                                    <param id="0" name="Instance variable">type</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">4</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="5" name="Set frame" sid="3388658500824414" type="Enemy">
+                                                    <param id="0" name="Frame number">4</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                                <event-block collapsed="1" sid="6177089284342404">
+                                    <conditions>
+                                        <condition id="-14" name="Compare variable" sid="1726667428538719" type="System">
+                                            <param id="0" name="Variable">EnemyColorVariation</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">1</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-3" name="Create object" sid="4816686077048218" type="System">
+                                            <param id="0" name="Object to create">EnemyBlack</param>
+                                            <param id="1" name="Layer">&quot;Game&quot;</param>
+                                            <param id="2" name="X">floor(random(0, LayoutWidth - (Enemy.Width / 2)))</param>
+                                            <param id="3" name="Y">-200</param>
+                                        </action>
+                                        <action id="-10" name="Set value" sid="2416041308343292" type="Enemy">
+                                            <param id="0" name="Instance variable">type</param>
+                                            <param id="1" name="Value">floor(random(0, 5))</param>
+                                        </action>
+                                        <action id="-10" name="Set value" sid="8372120176748711" type="Enemy">
+                                            <param id="0" name="Instance variable">isTyped</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                    </actions>
+                                    <sub-events>
+                                        <event-block sid="2020147022208727">
+                                            <conditions>
+                                                <condition id="-7" name="Compare instance variable" sid="5881637132271168" type="Enemy">
+                                                    <param id="0" name="Instance variable">type</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">0</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="5" name="Set frame" sid="4636514617293098" type="Enemy">
+                                                    <param id="0" name="Frame number">0</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="3136614231844853">
+                                            <conditions>
+                                                <condition id="-7" name="Compare instance variable" sid="422507543763569" type="Enemy">
+                                                    <param id="0" name="Instance variable">type</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">1</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="5" name="Set frame" sid="2443923697072824" type="Enemy">
+                                                    <param id="0" name="Frame number">1</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="8522564217467819">
+                                            <conditions>
+                                                <condition id="-7" name="Compare instance variable" sid="3230306600801651" type="Enemy">
+                                                    <param id="0" name="Instance variable">type</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">2</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="5" name="Set frame" sid="1241366522307426" type="Enemy">
+                                                    <param id="0" name="Frame number">2</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="3106841331013933">
+                                            <conditions>
+                                                <condition id="-7" name="Compare instance variable" sid="9655165888322379" type="Enemy">
+                                                    <param id="0" name="Instance variable">type</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">3</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="5" name="Set frame" sid="4813426137317301" type="Enemy">
+                                                    <param id="0" name="Frame number">3</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="8944646738490204">
+                                            <conditions>
+                                                <condition id="-7" name="Compare instance variable" sid="7515740662717699" type="Enemy">
+                                                    <param id="0" name="Instance variable">type</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">4</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="5" name="Set frame" sid="3317000571734358" type="Enemy">
+                                                    <param id="0" name="Frame number">4</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                                <event-block collapsed="1" sid="7514369099863118">
+                                    <conditions>
+                                        <condition id="-14" name="Compare variable" sid="6550095053271646" type="System">
+                                            <param id="0" name="Variable">EnemyColorVariation</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">2</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-3" name="Create object" sid="6858289586509966" type="System">
+                                            <param id="0" name="Object to create">EnemyGreen</param>
+                                            <param id="1" name="Layer">&quot;Game&quot;</param>
+                                            <param id="2" name="X">floor(random(0, LayoutWidth - (Enemy.Width / 2)))</param>
+                                            <param id="3" name="Y">-200</param>
+                                        </action>
+                                        <action id="-10" name="Set value" sid="6318023053934706" type="Enemy">
+                                            <param id="0" name="Instance variable">type</param>
+                                            <param id="1" name="Value">floor(random(0, 5))</param>
+                                        </action>
+                                        <action id="-10" name="Set value" sid="4972259116318406" type="Enemy">
+                                            <param id="0" name="Instance variable">isTyped</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                    </actions>
+                                    <sub-events>
+                                        <event-block sid="7995895205482919">
+                                            <conditions>
+                                                <condition id="-7" name="Compare instance variable" sid="9470528681773153" type="Enemy">
+                                                    <param id="0" name="Instance variable">type</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">0</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="5" name="Set frame" sid="8994899968786095" type="Enemy">
+                                                    <param id="0" name="Frame number">0</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="8479126972910433">
+                                            <conditions>
+                                                <condition id="-7" name="Compare instance variable" sid="8203313533054276" type="Enemy">
+                                                    <param id="0" name="Instance variable">type</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">1</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="5" name="Set frame" sid="5145543316829388" type="Enemy">
+                                                    <param id="0" name="Frame number">1</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="7249930329486275">
+                                            <conditions>
+                                                <condition id="-7" name="Compare instance variable" sid="1476891650154057" type="Enemy">
+                                                    <param id="0" name="Instance variable">type</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">2</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="5" name="Set frame" sid="4985126878372253" type="Enemy">
+                                                    <param id="0" name="Frame number">2</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="9464427081614095">
+                                            <conditions>
+                                                <condition id="-7" name="Compare instance variable" sid="9378115952429899" type="Enemy">
+                                                    <param id="0" name="Instance variable">type</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">3</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="5" name="Set frame" sid="5077352642729574" type="Enemy">
+                                                    <param id="0" name="Frame number">3</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="9185099670763072">
+                                            <conditions>
+                                                <condition id="-7" name="Compare instance variable" sid="1494308753940088" type="Enemy">
+                                                    <param id="0" name="Instance variable">type</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">4</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="5" name="Set frame" sid="5927921243778994" type="Enemy">
+                                                    <param id="0" name="Frame number">4</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                                <event-block collapsed="1" sid="471039655422183">
+                                    <conditions>
+                                        <condition id="-14" name="Compare variable" sid="8670783683416239" type="System">
+                                            <param id="0" name="Variable">EnemyColorVariation</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">3</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-3" name="Create object" sid="5804607581384272" type="System">
+                                            <param id="0" name="Object to create">EnemyRed</param>
+                                            <param id="1" name="Layer">&quot;Game&quot;</param>
+                                            <param id="2" name="X">floor(random(0, LayoutWidth - (Enemy.Width / 2)))</param>
+                                            <param id="3" name="Y">-200</param>
+                                        </action>
+                                        <action id="-10" name="Set value" sid="1322677980570463" type="Enemy">
+                                            <param id="0" name="Instance variable">type</param>
+                                            <param id="1" name="Value">floor(random(0, 5))</param>
+                                        </action>
+                                        <action id="-10" name="Set value" sid="2222282004849937" type="Enemy">
+                                            <param id="0" name="Instance variable">isTyped</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                    </actions>
+                                    <sub-events>
+                                        <event-block sid="8050396417133397">
+                                            <conditions>
+                                                <condition id="-7" name="Compare instance variable" sid="8735336017726906" type="Enemy">
+                                                    <param id="0" name="Instance variable">type</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">0</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="5" name="Set frame" sid="7309933757100449" type="Enemy">
+                                                    <param id="0" name="Frame number">0</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="2187041963745805">
+                                            <conditions>
+                                                <condition id="-7" name="Compare instance variable" sid="6895975669039744" type="Enemy">
+                                                    <param id="0" name="Instance variable">type</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">1</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="5" name="Set frame" sid="7551083987025554" type="Enemy">
+                                                    <param id="0" name="Frame number">1</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="8502989566573216">
+                                            <conditions>
+                                                <condition id="-7" name="Compare instance variable" sid="6225177813992738" type="Enemy">
+                                                    <param id="0" name="Instance variable">type</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">2</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="5" name="Set frame" sid="9478546676266419" type="Enemy">
+                                                    <param id="0" name="Frame number">2</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="4018208862310128">
+                                            <conditions>
+                                                <condition id="-7" name="Compare instance variable" sid="4119069043259062" type="Enemy">
+                                                    <param id="0" name="Instance variable">type</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">3</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="5" name="Set frame" sid="7240516114093825" type="Enemy">
+                                                    <param id="0" name="Frame number">3</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="2687040076246135">
+                                            <conditions>
+                                                <condition id="-7" name="Compare instance variable" sid="9226476519796725" type="Enemy">
+                                                    <param id="0" name="Instance variable">type</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">4</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="5" name="Set frame" sid="9127142387123825" type="Enemy">
+                                                    <param id="0" name="Frame number">4</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                            </sub-events>
                         </event-block>
                         <event-block sid="8998481859900966">
                             <conditions>
@@ -123,6 +513,207 @@
                             </conditions>
                             <actions>
                                 <action id="-10" name="Set value" sid="2919604647450111" type="Enemy">
+                                    <param id="0" name="Instance variable">direction</param>
+                                    <param id="1" name="Value">floor(random(0, 4))</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="4153548946877042">
+                    <conditions>
+                        <condition id="-6" name="Every X seconds" sid="4091689054284943" type="System">
+                            <param id="0" name="Interval (seconds)">EnemyTimer</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="190132474610659" type="System">
+                            <param id="0" name="Variable">EnemyColorVariation</param>
+                            <param id="1" name="Value">floor(random(0, 4))</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="2074410197071563">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="8234342930098812" type="System">
+                                    <param id="0" name="Variable">EnemyColorVariation</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Create object" sid="9020619932132601" type="System">
+                                    <param id="0" name="Object to create">EnemyBlue</param>
+                                    <param id="1" name="Layer">&quot;Game&quot;</param>
+                                    <param id="2" name="X">floor(random(0, LayoutWidth - (Enemy.Width / 2)))</param>
+                                    <param id="3" name="Y">-400</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="1030300007494091">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="3013969851102469" type="System">
+                                    <param id="0" name="Variable">EnemyColorVariation</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Create object" sid="9101357561761435" type="System">
+                                    <param id="0" name="Object to create">EnemyBlack</param>
+                                    <param id="1" name="Layer">&quot;Game&quot;</param>
+                                    <param id="2" name="X">floor(random(0, LayoutWidth - (Enemy.Width / 2)))</param>
+                                    <param id="3" name="Y">-400</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="1275259174620906">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="5802424673189362" type="System">
+                                    <param id="0" name="Variable">EnemyColorVariation</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">2</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Create object" sid="7071058924896113" type="System">
+                                    <param id="0" name="Object to create">EnemyGreen</param>
+                                    <param id="1" name="Layer">&quot;Game&quot;</param>
+                                    <param id="2" name="X">floor(random(0, LayoutWidth - (Enemy.Width / 2)))</param>
+                                    <param id="3" name="Y">-400</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="2943269070089443">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="8763556883100414" type="System">
+                                    <param id="0" name="Variable">EnemyColorVariation</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">3</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Create object" sid="9527537161867398" type="System">
+                                    <param id="0" name="Object to create">EnemyRed</param>
+                                    <param id="1" name="Layer">&quot;Game&quot;</param>
+                                    <param id="2" name="X">floor(random(0, LayoutWidth - (Enemy.Width / 2)))</param>
+                                    <param id="3" name="Y">-400</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="7473565402515527">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="877241424960603" type="Enemy">
+                                    <param id="0" name="Instance variable">isTyped</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Set value" sid="5809276292841487" type="Enemy">
+                                    <param id="0" name="Instance variable">type</param>
+                                    <param id="1" name="Value">floor(random(0, 5))</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="9033330720200572">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="2216249416763774" type="Enemy">
+                                            <param id="0" name="Instance variable">type</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">0</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="5" name="Set frame" sid="5336608483736725" type="Enemy">
+                                            <param id="0" name="Frame number">0</param>
+                                        </action>
+                                        <action id="-10" name="Set value" sid="3656218517377516" type="Enemy">
+                                            <param id="0" name="Instance variable">isTyped</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="6075909281643091">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="7418968726766431" type="Enemy">
+                                            <param id="0" name="Instance variable">type</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">1</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="5" name="Set frame" sid="7174115395360984" type="Enemy">
+                                            <param id="0" name="Frame number">1</param>
+                                        </action>
+                                        <action id="-10" name="Set value" sid="4722090607626374" type="Enemy">
+                                            <param id="0" name="Instance variable">isTyped</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="4997781696398537">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="9558962546436239" type="Enemy">
+                                            <param id="0" name="Instance variable">type</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">2</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="5" name="Set frame" sid="7006358220185149" type="Enemy">
+                                            <param id="0" name="Frame number">2</param>
+                                        </action>
+                                        <action id="-10" name="Set value" sid="9947585721233978" type="Enemy">
+                                            <param id="0" name="Instance variable">isTyped</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="2435537367005318">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="1221860169996464" type="Enemy">
+                                            <param id="0" name="Instance variable">type</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">3</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="5" name="Set frame" sid="8765232338141802" type="Enemy">
+                                            <param id="0" name="Frame number">3</param>
+                                        </action>
+                                        <action id="-10" name="Set value" sid="3029181711013638" type="Enemy">
+                                            <param id="0" name="Instance variable">isTyped</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="8947550881963129">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="7103739496450959" type="Enemy">
+                                            <param id="0" name="Instance variable">type</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">4</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="5" name="Set frame" sid="306906464533611" type="Enemy">
+                                            <param id="0" name="Frame number">4</param>
+                                        </action>
+                                        <action id="-10" name="Set value" sid="8398229433720279" type="Enemy">
+                                            <param id="0" name="Instance variable">isTyped</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="8926341905927339">
+                            <conditions>
+                                <condition id="-3" name="Is on-screen" sid="4417464317375189" type="Enemy" />
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Set value" sid="5562493621694429" type="Enemy">
                                     <param id="0" name="Instance variable">direction</param>
                                     <param id="1" name="Value">floor(random(0, 4))</param>
                                 </action>

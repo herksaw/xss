@@ -313,6 +313,8 @@
                     </properties>
                     <instance-variables>
                         <direction>0</direction>
+                        <type>0</type>
+                        <isTyped>0</isTyped>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="8Direction">
@@ -330,8 +332,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>-180</x>
-                        <y>1012</y>
+                        <x>40</x>
+                        <y>-792</y>
                         <z>0</z>
                         <width>93</width>
                         <height>84</height>
@@ -351,6 +353,8 @@
                     </properties>
                     <instance-variables>
                         <direction>0</direction>
+                        <type>0</type>
+                        <isTyped>0</isTyped>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="8Direction">
@@ -368,8 +372,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>-179</x>
-                        <y>1130</y>
+                        <x>179</x>
+                        <y>-790</y>
                         <z>0</z>
                         <width>93</width>
                         <height>84</height>
@@ -389,6 +393,8 @@
                     </properties>
                     <instance-variables>
                         <direction>0</direction>
+                        <type>0</type>
+                        <isTyped>0</isTyped>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="8Direction">
@@ -406,8 +412,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>-177</x>
-                        <y>1254</y>
+                        <x>311</x>
+                        <y>-789</y>
                         <z>0</z>
                         <width>93</width>
                         <height>84</height>
@@ -427,6 +433,8 @@
                     </properties>
                     <instance-variables>
                         <direction>0</direction>
+                        <type>0</type>
+                        <isTyped>0</isTyped>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="8Direction">
@@ -444,8 +452,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>-177</x>
-                        <y>1379</y>
+                        <x>444</x>
+                        <y>-786</y>
                         <z>0</z>
                         <width>93</width>
                         <height>84</height>
