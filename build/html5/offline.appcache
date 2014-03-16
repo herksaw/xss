@@ -1,5 +1,5 @@
 ﻿CACHE MANIFEST
-#1394973775
+#1394974489
 index.html
 c2runtime.js
 jquery-2.0.0.min.js
@@ -17,6 +17,10 @@ images\enemyred-sheet0.png
 images\enemyblack-sheet0.png
 images\playerlaserblue-sheet0.png
 images\enemylaserblue-sheet0.png
+images\playerlasergreen-sheet0.png
+images\enemylasergreen-sheet0.png
+images\enemylaserred-sheet0.png
+images\playerlaserred-sheet0.png
 icon-16.png
 icon-32.png
 icon-114.png
