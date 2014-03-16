@@ -23,6 +23,7 @@
                         <action id="0" name="Set text" sid="2651063642429515" type="BoxVersion">
                             <param id="0" name="Text">&quot;Version: &quot; &amp; projectversion</param>
                         </action>
+                        <action id="-24" name="Move to top" sid="3752229734528655" type="Player" />
                     </actions>
                 </event-block>
                 <event-block sid="4891244025843838">
@@ -97,12 +98,7 @@
                             <param id="0" name="Interval (seconds)">2.0</param>
                         </condition>
                     </conditions>
-                    <actions>
-                        <action id="-10" name="Set value" sid="6343086239237919" type="Enemy">
-                            <param id="0" name="Instance variable">direction</param>
-                            <param id="1" name="Value">floor(random(0, 4))</param>
-                        </action>
-                    </actions>
+                    <actions />
                     <sub-events>
                         <event-block sid="4413361911793874">
                             <conditions>
@@ -121,71 +117,40 @@
                                 </action>
                             </actions>
                         </event-block>
+                        <event-block sid="8998481859900966">
+                            <conditions>
+                                <condition id="-3" name="Is on-screen" sid="2039190065255433" type="Enemy" />
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Set value" sid="2919604647450111" type="Enemy">
+                                    <param id="0" name="Instance variable">direction</param>
+                                    <param id="1" name="Value">floor(random(0, 4))</param>
+                                </action>
+                            </actions>
+                        </event-block>
                     </sub-events>
                 </event-block>
-                <event-block collapsed="1" sid="8815151445467546">
+                <event-block sid="8815151445467546">
                     <conditions>
                         <condition id="-1" name="Every tick" sid="6472945270762378" type="System" />
                     </conditions>
-                    <actions />
-                    <sub-events>
-                        <event-block sid="856934782120637">
-                            <conditions>
-                                <condition id="-7" name="Compare instance variable" sid="2370437380843418" type="Enemy">
-                                    <param id="0" name="Instance variable">direction</param>
-                                    <param id="1" name="Comparison">0</param>
-                                    <param id="2" name="Value">0</param>
-                                </condition>
-                            </conditions>
-                            <actions>
-                                <action behavior="8Direction" id="7" name="Simulate control" sid="931279805210039" type="Enemy">
-                                    <param id="0" name="Control">2</param>
-                                </action>
-                            </actions>
-                        </event-block>
-                        <event-block sid="3187018600984811">
-                            <conditions>
-                                <condition id="-7" name="Compare instance variable" sid="7263545596769141" type="Enemy">
-                                    <param id="0" name="Instance variable">direction</param>
-                                    <param id="1" name="Comparison">0</param>
-                                    <param id="2" name="Value">1</param>
-                                </condition>
-                            </conditions>
-                            <actions>
-                                <action behavior="8Direction" id="7" name="Simulate control" sid="7295899814953568" type="Enemy">
-                                    <param id="0" name="Control">3</param>
-                                </action>
-                            </actions>
-                        </event-block>
-                        <event-block sid="8981806097925995">
-                            <conditions>
-                                <condition id="-7" name="Compare instance variable" sid="3570495139868875" type="Enemy">
-                                    <param id="0" name="Instance variable">direction</param>
-                                    <param id="1" name="Comparison">0</param>
-                                    <param id="2" name="Value">2</param>
-                                </condition>
-                            </conditions>
-                            <actions>
-                                <action behavior="8Direction" id="7" name="Simulate control" sid="8470353241452662" type="Enemy">
-                                    <param id="0" name="Control">0</param>
-                                </action>
-                            </actions>
-                        </event-block>
-                        <event-block sid="8205073157746356">
-                            <conditions>
-                                <condition id="-7" name="Compare instance variable" sid="4189634822127849" type="Enemy">
-                                    <param id="0" name="Instance variable">direction</param>
-                                    <param id="1" name="Comparison">0</param>
-                                    <param id="2" name="Value">3</param>
-                                </condition>
-                            </conditions>
-                            <actions>
-                                <action behavior="8Direction" id="7" name="Simulate control" sid="580533994046846" type="Enemy">
-                                    <param id="0" name="Control">1</param>
-                                </action>
-                            </actions>
-                        </event-block>
-                    </sub-events>
+                    <actions>
+                        <action id="0" name="Call function" sid="2043019294181725" type="Function">
+                            <param id="0" name="Name">&quot;EnemyMoving&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="1740322179268155">
+                    <conditions>
+                        <condition id="-3" inverted="1" name="Is on-screen" sid="1156888400570632" type="Enemy" />
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Set value" sid="6531784933060585" type="Enemy">
+                            <param id="0" name="Instance variable">direction</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
                 </event-block>
                 <event-block sid="4113831475321218">
                     <conditions>
@@ -197,6 +162,10 @@
                     <actions>
                         <action id="-1" name="Set X" sid="6921754302365274" type="Enemy">
                             <param id="0" name="X">Enemy.Width / 2</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="6883397858649626" type="Enemy">
+                            <param id="0" name="Instance variable">direction</param>
+                            <param id="1" name="Value">floor(random(0, 4))</param>
                         </action>
                     </actions>
                 </event-block>
@@ -210,6 +179,10 @@
                     <actions>
                         <action id="-1" name="Set X" sid="9971542217806879" type="Enemy">
                             <param id="0" name="X">LayoutWidth - (Enemy.Width / 2)</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="8984639629970491" type="Enemy">
+                            <param id="0" name="Instance variable">direction</param>
+                            <param id="1" name="Value">floor(random(0, 4))</param>
                         </action>
                     </actions>
                 </event-block>
@@ -386,13 +359,27 @@
             <sub-events>
                 <event-block sid="6415149790695844">
                     <conditions>
-                        <condition id="1" name="Is overlapping another object" sid="3688082357687766" type="PlayerLaserBlue">
+                        <condition id="1" name="Is overlapping another object" sid="3688082357687766" type="PlayerLaser">
                             <param id="0" name="Object">Enemy</param>
                         </condition>
                     </conditions>
                     <actions>
-                        <action id="-9" name="Destroy" sid="9054915720342099" type="PlayerLaserBlue" />
+                        <action id="-9" name="Destroy" sid="9054915720342099" type="PlayerLaser" />
                         <action id="-9" name="Destroy" sid="1211745267587067" type="Enemy" />
+                    </actions>
+                </event-block>
+                <event-block disabled="1" sid="3953551888282885">
+                    <conditions>
+                        <condition id="1" name="Is overlapping another object" sid="6252461076264755" type="Enemy">
+                            <param id="0" name="Object">Enemy</param>
+                        </condition>
+                        <condition id="-3" name="Is on-screen" sid="9598085232306449" type="Enemy" />
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Set value" sid="349055153135139" type="Enemy">
+                            <param id="0" name="Instance variable">direction</param>
+                            <param id="1" name="Value">floor(random(0, 4))</param>
+                        </action>
                     </actions>
                 </event-block>
             </sub-events>
@@ -411,7 +398,7 @@
                     <conditions>
                         <condition id="-2" name="Compare Y" sid="5077177966922028" type="Enemy">
                             <param id="0" name="Comparison">5</param>
-                            <param id="1" name="Y co-ordinate">LayoutHeight + Enemy.Width</param>
+                            <param id="1" name="Y co-ordinate">LayoutHeight + Enemy.Height</param>
                         </condition>
                     </conditions>
                     <actions>
@@ -428,17 +415,17 @@
                 </event-block>
                 <event-block sid="2197687771891704">
                     <conditions>
-                        <condition id="-4" name="Is outside layout" sid="9525061543834721" type="EnemyLaserBlue" />
+                        <condition id="-4" name="Is outside layout" sid="9525061543834721" type="EnemyLaser" />
                     </conditions>
                     <actions>
-                        <action id="-9" name="Destroy" sid="3070112187812302" type="EnemyLaserBlue" />
+                        <action id="-9" name="Destroy" sid="3070112187812302" type="EnemyLaser" />
                     </actions>
                 </event-block>
             </sub-events>
         </event-group>
         <event-group description="" sid="3358241870841131" title="Function">
             <sub-events>
-                <event-block sid="847657596780405">
+                <event-block collapsed="1" sid="847657596780405">
                     <conditions>
                         <condition id="0" name="On function" sid="9060889196447462" type="Function">
                             <param id="0" name="Name">&quot;PlayerShooting&quot;</param>
@@ -463,6 +450,72 @@
                                 </action>
                                 <action behavior="Bullet" id="3" name="Set angle of motion" sid="7355139433197888" type="PlayerLaserBlue">
                                     <param id="0" name="Angle">270</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="5351601121533574">
+                    <conditions>
+                        <condition id="0" name="On function" sid="6547427980743595" type="Function">
+                            <param id="0" name="Name">&quot;EnemyMoving&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="6905831694891817">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="40908440150075" type="Enemy">
+                                    <param id="0" name="Instance variable">direction</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="8Direction" id="7" name="Simulate control" sid="1460884182631202" type="Enemy">
+                                    <param id="0" name="Control">2</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="6535361832393826">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="1470345346380524" type="Enemy">
+                                    <param id="0" name="Instance variable">direction</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="8Direction" id="7" name="Simulate control" sid="674458548526084" type="Enemy">
+                                    <param id="0" name="Control">3</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="7259431297776646">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="746404479653057" type="Enemy">
+                                    <param id="0" name="Instance variable">direction</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">2</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="8Direction" id="7" name="Simulate control" sid="736508701349085" type="Enemy">
+                                    <param id="0" name="Control">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="4812439136626939">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="2536532703630865" type="Enemy">
+                                    <param id="0" name="Instance variable">direction</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">3</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="8Direction" id="7" name="Simulate control" sid="9326601128625773" type="Enemy">
+                                    <param id="0" name="Control">1</param>
                                 </action>
                             </actions>
                         </event-block>

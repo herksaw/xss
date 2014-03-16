@@ -2,7 +2,7 @@
 <c2project>
     <name>X Space Shooter</name>
     <description>A top-down shoot&apos;em up space shooter.</description>
-    <version>0.0.0.5</version>
+    <version>0.0.0.6</version>
     <author>Conodene</author>
     <author-email></author-email>
     <author-website></author-website>
@@ -22,6 +22,7 @@
     <used-behaviors>
         <behavior author="Scirra" id="Bullet" version="1">Bullet</behavior>
         <behavior author="Scirra" id="EightDir" version="1">8 Direction</behavior>
+        <behavior author="Scirra" id="bound" version="1">Bound to layout</behavior>
     </used-behaviors>
     <used-effects />
     <configurations>
@@ -241,6 +242,9 @@
             <behaviors>
                 <behavior-type name="8Direction" sid="3377516809225082">
                     <behavior id="EightDir" />
+                </behavior-type>
+                <behavior-type name="BoundToLayout" sid="2200916181370611">
+                    <behavior id="bound" />
                 </behavior-type>
             </behaviors>
         </family>
