@@ -13,11 +13,62 @@
                     </conditions>
                     <actions />
                 </event-block>
+                <event-block sid="1919213085384642">
+                    <conditions>
+                        <condition id="-1" name="Every tick" sid="3436778228445825" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="2651063642429515" type="BoxVersion">
+                            <param id="0" name="Text">&quot;Version: &quot; &amp; projectversion</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="4891244025843838">
+                    <conditions>
+                        <condition id="5" name="Is downloading update" sid="6470700282410591" type="Browser" />
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="7960112189913055" type="BoxUpdate">
+                            <param id="0" name="Text">&quot;Downloading update...&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="6757817748303016">
+                    <conditions>
+                        <condition id="5" inverted="1" name="Is downloading update" sid="602282128035935" type="Browser" />
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="8329121224000403" type="BoxUpdate">
+                            <param id="0" name="Text">&quot;No update found.&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="8460070616983792">
+                    <conditions>
+                        <condition id="6" name="On update ready" sid="9666427666808817" type="Browser" />
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="6212965267662188" type="BoxUpdate">
+                            <param id="0" name="Text">&quot;Game updated.&quot;</param>
+                        </action>
+                        <action id="0" name="Alert" sid="7698807829097539" type="Browser">
+                            <param id="0" name="Message">&quot;X Space Shooter has successfully installed an update just now.&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="6081886538529268">
+                    <conditions>
+                        <condition id="-4" name="Is outside layout" sid="6111324013856294" type="Player" />
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="7203884357184733" type="Player" />
+                    </actions>
+                </event-block>
             </sub-events>
         </event-group>
-        <event-group collapsed="1" description="" sid="6255398191023265" title="Level">
+        <event-group description="" sid="6255398191023265" title="Level">
             <sub-events>
-                <event-block collapsed="1" sid="4103551603448231">
+                <event-block sid="4103551603448231">
                     <conditions>
                         <condition id="-14" name="Compare variable" sid="5901591169739854" type="System">
                             <param id="0" name="Variable">CurrentLevel</param>
@@ -35,7 +86,7 @@
                             <conditions>
                                 <condition id="-2" name="Compare Y" sid="7537815985873036" type="BackgroundPurple">
                                     <param id="0" name="Comparison">5</param>
-                                    <param id="1" name="Y co-ordinate">LayoutHeight</param>
+                                    <param id="1" name="Y co-ordinate">LayoutHeight + 20</param>
                                 </condition>
                             </conditions>
                             <actions>
@@ -56,6 +107,34 @@
                     </conditions>
                     <actions />
                     <sub-events>
+                        <event-block sid="4803868432525051">
+                            <conditions>
+                                <condition id="8" name="Compare orientation" sid="9485194157343575" type="Touch">
+                                    <param id="0" name="Orientation">2</param>
+                                    <param id="1" name="Comparison">3</param>
+                                    <param id="2" name="Angle">-8</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="8Direction" id="7" name="Simulate control" sid="3052467053954737" type="Player">
+                                    <param id="0" name="Control">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="1471295145470884">
+                            <conditions>
+                                <condition id="8" name="Compare orientation" sid="3554141851114064" type="Touch">
+                                    <param id="0" name="Orientation">2</param>
+                                    <param id="1" name="Comparison">5</param>
+                                    <param id="2" name="Angle">8</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="8Direction" id="7" name="Simulate control" sid="5448492218778997" type="Player">
+                                    <param id="0" name="Control">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
                         <event-block sid="4252639644960063">
                             <conditions>
                                 <condition id="8" name="Compare orientation" sid="408425195523636" type="Touch">
@@ -64,17 +143,25 @@
                                     <param id="2" name="Angle">8</param>
                                 </condition>
                             </conditions>
-                            <actions />
+                            <actions>
+                                <action behavior="8Direction" id="7" name="Simulate control" sid="9516325930542546" type="Player">
+                                    <param id="0" name="Control">2</param>
+                                </action>
+                            </actions>
                         </event-block>
                         <event-block sid="5859591197740923">
                             <conditions>
                                 <condition id="8" name="Compare orientation" sid="3901792313134348" type="Touch">
                                     <param id="0" name="Orientation">1</param>
                                     <param id="1" name="Comparison">3</param>
-                                    <param id="2" name="Angle">8</param>
+                                    <param id="2" name="Angle">-8</param>
                                 </condition>
                             </conditions>
-                            <actions />
+                            <actions>
+                                <action behavior="8Direction" id="7" name="Simulate control" sid="2911433017336713" type="Player">
+                                    <param id="0" name="Control">3</param>
+                                </action>
+                            </actions>
                         </event-block>
                     </sub-events>
                 </event-block>

@@ -2,7 +2,7 @@
 <c2project>
     <name>X Space Shooter</name>
     <description>A top-down shoot&apos;em up space shooter.</description>
-    <version>0.0.0.2</version>
+    <version>0.0.0.3</version>
     <author>Conodene</author>
     <author-email></author-email>
     <author-website></author-website>
@@ -10,9 +10,11 @@
     <unique-id>19j3t9abwrvsm</unique-id>
     <saved-with-version>15600</saved-with-version>
     <used-plugins>
+        <plugin author="Scirra" id="Browser" version="1">Browser</plugin>
         <plugin author="Scirra" id="Keyboard" version="1">Keyboard</plugin>
         <plugin author="Scirra" id="Mouse" version="1">Mouse</plugin>
         <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
+        <plugin author="Scirra" id="Text" version="1">Text</plugin>
         <plugin author="Scirra" id="TiledBg" version="1">Tiled Background</plugin>
         <plugin author="Scirra" id="Touch" version="1">Touch</plugin>
     </used-plugins>
@@ -156,6 +158,15 @@
         <object-type name="Mouse" sid="5268727192296211">
             <plugin id="Mouse" />
         </object-type>
+        <object-type name="Browser" sid="314318813050375">
+            <plugin id="Browser" />
+        </object-type>
+        <object-type name="BoxUpdate" sid="895794661156007">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="BoxVersion" sid="6693818576089407">
+            <plugin id="Text" />
+        </object-type>
     </object-folder>
     <families>
         <family name="Player" plugin-id="Sprite" sid="2169998369894082">
@@ -194,6 +205,7 @@
             </properties>
         </global-instance>
         <global-instance type="Mouse" uid="15" />
+        <global-instance type="Browser" uid="16" />
     </global-instances>
     <sounds-folder expanded="1" />
     <music-folder expanded="1" />
