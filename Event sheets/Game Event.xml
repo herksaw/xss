@@ -3,6 +3,7 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>Game Event</name>
     <events>
+        <variable constant="0" name="PlayerPlane" sid="7835224101687629" static="0" type="text">Blue</variable>
         <variable constant="0" name="UseMouse" sid="3565339359927593" static="0" type="number">0</variable>
         <variable constant="0" name="CurrentLevel" sid="3735789936954935" static="0" type="number">0</variable>
         <event-group description="" sid="2090786223585901" title="System">
@@ -56,19 +57,11 @@
                         </action>
                     </actions>
                 </event-block>
-                <event-block sid="6081886538529268">
-                    <conditions>
-                        <condition id="-4" name="Is outside layout" sid="6111324013856294" type="Player" />
-                    </conditions>
-                    <actions>
-                        <action id="-9" name="Destroy" sid="7203884357184733" type="Player" />
-                    </actions>
-                </event-block>
             </sub-events>
         </event-group>
-        <event-group description="" sid="6255398191023265" title="Level">
+        <event-group collapsed="1" description="" sid="6255398191023265" title="Level">
             <sub-events>
-                <event-block sid="4103551603448231">
+                <event-block collapsed="1" sid="4103551603448231">
                     <conditions>
                         <condition id="-14" name="Compare variable" sid="5901591169739854" type="System">
                             <param id="0" name="Variable">CurrentLevel</param>
@@ -165,70 +158,120 @@
                         </event-block>
                     </sub-events>
                 </event-block>
-                <event-block sid="4401859522584552">
+                <event-block sid="7383938714583964">
                     <conditions>
-                        <condition id="-14" name="Compare variable" sid="4851655703061479" type="System">
-                            <param id="0" name="Variable">UseMouse</param>
-                            <param id="1" name="Comparison">0</param>
-                            <param id="2" name="Value">1</param>
-                        </condition>
-                        <condition id="-3" name="Is on-screen" sid="8516379973061746" type="Player" />
+                        <condition id="-22" name="Else" sid="6556321426209519" type="System" />
                     </conditions>
                     <actions />
                     <sub-events>
-                        <event-block sid="46659322529697">
+                        <event-block collapsed="1" sid="5053736758401036">
                             <conditions>
-                                <condition id="-1" name="Compare X" sid="2646238797235965" type="Player">
-                                    <param id="0" name="Comparison">4</param>
-                                    <param id="1" name="X co-ordinate">Mouse.X</param>
+                                <condition id="-14" name="Compare variable" sid="8437661860355804" type="System">
+                                    <param id="0" name="Variable">UseMouse</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">1</param>
                                 </condition>
+                                <condition id="-3" name="Is on-screen" sid="8707191296206158" type="Player" />
                             </conditions>
-                            <actions>
-                                <action behavior="8Direction" id="7" name="Simulate control" sid="791068647305586" type="Player">
-                                    <param id="0" name="Control">0</param>
-                                </action>
-                            </actions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="1262568569728538">
+                                    <conditions>
+                                        <condition id="-1" name="Compare X" sid="7728687802980846" type="Player">
+                                            <param id="0" name="Comparison">4</param>
+                                            <param id="1" name="X co-ordinate">Mouse.X</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action behavior="8Direction" id="7" name="Simulate control" sid="2664953924208931" type="Player">
+                                            <param id="0" name="Control">0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="2737505961740769">
+                                    <conditions>
+                                        <condition id="-1" name="Compare X" sid="4403795513299785" type="Player">
+                                            <param id="0" name="Comparison">2</param>
+                                            <param id="1" name="X co-ordinate">Mouse.X</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action behavior="8Direction" id="7" name="Simulate control" sid="9944742581229974" type="Player">
+                                            <param id="0" name="Control">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="917578923662745">
+                                    <conditions>
+                                        <condition id="-2" name="Compare Y" sid="1847336594247727" type="Player">
+                                            <param id="0" name="Comparison">4</param>
+                                            <param id="1" name="Y co-ordinate">Mouse.Y</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action behavior="8Direction" id="7" name="Simulate control" sid="1996005393673483" type="Player">
+                                            <param id="0" name="Control">2</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="5152978237836493">
+                                    <conditions>
+                                        <condition id="-2" name="Compare Y" sid="66030291844551" type="Player">
+                                            <param id="0" name="Comparison">2</param>
+                                            <param id="1" name="Y co-ordinate">Mouse.Y</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action behavior="8Direction" id="7" name="Simulate control" sid="8367690878954417" type="Player">
+                                            <param id="0" name="Control">3</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
                         </event-block>
-                        <event-block sid="1071740239071522">
+                        <event-block sid="7530546794077782">
                             <conditions>
-                                <condition id="-1" name="Compare X" sid="5061383642009199" type="Player">
-                                    <param id="0" name="Comparison">2</param>
-                                    <param id="1" name="X co-ordinate">Mouse.X</param>
+                                <condition id="0" name="On key pressed" sid="5778921881563612" type="Keyboard">
+                                    <param id="0" name="Key">32 (Space)</param>
                                 </condition>
                             </conditions>
-                            <actions>
-                                <action behavior="8Direction" id="7" name="Simulate control" sid="2208985011808305" type="Player">
-                                    <param id="0" name="Control">1</param>
-                                </action>
-                            </actions>
-                        </event-block>
-                        <event-block sid="2007056441053757">
-                            <conditions>
-                                <condition id="-2" name="Compare Y" sid="4784980803989718" type="Player">
-                                    <param id="0" name="Comparison">4</param>
-                                    <param id="1" name="Y co-ordinate">Mouse.Y</param>
-                                </condition>
-                            </conditions>
-                            <actions>
-                                <action behavior="8Direction" id="7" name="Simulate control" sid="9696477834306328" type="Player">
-                                    <param id="0" name="Control">2</param>
-                                </action>
-                            </actions>
-                        </event-block>
-                        <event-block sid="1065645376923387">
-                            <conditions>
-                                <condition id="-2" name="Compare Y" sid="9290839516086047" type="Player">
-                                    <param id="0" name="Comparison">2</param>
-                                    <param id="1" name="Y co-ordinate">Mouse.Y</param>
-                                </condition>
-                            </conditions>
-                            <actions>
-                                <action behavior="8Direction" id="7" name="Simulate control" sid="354399960685749" type="Player">
-                                    <param id="0" name="Control">3</param>
-                                </action>
-                            </actions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="695468340102">
+                                    <conditions>
+                                        <condition id="-14" name="Compare variable" sid="9289172511694961" type="System">
+                                            <param id="0" name="Variable">PlayerPlane</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;Blue&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-3" name="Create object" sid="2813119308124015" type="System">
+                                            <param id="0" name="Object to create">LaserBlue</param>
+                                            <param id="1" name="Layer">&quot;Game&quot;</param>
+                                            <param id="2" name="X">Player.X</param>
+                                            <param id="3" name="Y">Player.Y - Laser.Height</param>
+                                        </action>
+                                        <action behavior="Bullet" id="3" name="Set angle of motion" sid="8681749676476029" type="LaserBlue">
+                                            <param id="0" name="Angle">270</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
                         </event-block>
                     </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group collapsed="1" description="" sid="3615245158250845" title="Memory">
+            <sub-events>
+                <event-block sid="5630832033703638">
+                    <conditions>
+                        <condition id="-4" name="Is outside layout" sid="9143805842773414" type="Player" />
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="5543117487736813" type="Player" />
+                    </actions>
                 </event-block>
             </sub-events>
         </event-group>

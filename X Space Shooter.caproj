@@ -2,7 +2,7 @@
 <c2project>
     <name>X Space Shooter</name>
     <description>A top-down shoot&apos;em up space shooter.</description>
-    <version>0.0.0.3</version>
+    <version>0.0.0.4</version>
     <author>Conodene</author>
     <author-email></author-email>
     <author-website></author-website>
@@ -19,6 +19,7 @@
         <plugin author="Scirra" id="Touch" version="1">Touch</plugin>
     </used-plugins>
     <used-behaviors>
+        <behavior author="Scirra" id="Bullet" version="1">Bullet</behavior>
         <behavior author="Scirra" id="EightDir" version="1">8 Direction</behavior>
     </used-behaviors>
     <used-effects />
@@ -48,40 +49,55 @@
         <object-type name="PlayerBlue" sid="1596218011964508">
             <plugin id="Sprite" />
             <animation-folder expanded="1">
-                <animation framecount="3" loop="0" name="Default" pingpong="0" repeatcount="0" repeatto="0" sid="688473321742072" speed="0">
-                    <frame duration="1" hotspotX="0.50505" hotspotY="0.506667" />
+                <animation framecount="4" loop="0" name="Default" pingpong="0" repeatcount="0" repeatto="0" sid="688473321742072" speed="0">
+                    <frame duration="1" hotspotX="0.50505" hotspotY="0.506667">
+                        <collision-poly>
+                            <point x="0.142857" y="0.142857" />
+                            <point x="0.494505" y="0" />
+                            <point x="0.857143" y="0.142857" />
+                            <point x="1" y="0.494505" />
+                            <point x="0.857143" y="0.857143" />
+                            <point x="0.494505" y="1" />
+                            <point x="0.142857" y="0.857143" />
+                            <point x="0" y="0.494505" />
+                        </collision-poly>
+                    </frame>
                     <frame duration="1" hotspotX="0.5" hotspotY="0.506667" />
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.506667" />
+                    <frame duration="1" hotspotX="-0.683673" hotspotY="-0.253333" />
+                    <frame duration="1" hotspotX="0.505495" hotspotY="0.505495" />
                 </animation>
             </animation-folder>
         </object-type>
         <object-type name="PlayerGreen" sid="1392551080299996">
             <plugin id="Sprite" />
             <animation-folder expanded="1">
-                <animation framecount="3" loop="0" name="Default" pingpong="0" repeatcount="0" repeatto="0" sid="4201422602271843" speed="0">
+                <animation framecount="4" loop="0" name="Default" pingpong="0" repeatcount="0" repeatto="0" sid="4201422602271843" speed="0">
                     <frame duration="1" hotspotX="0.50505" hotspotY="0.506667" />
                     <frame duration="1" hotspotX="0.5" hotspotY="0.506667" />
                     <frame duration="1" hotspotX="0.5" hotspotY="0.506667" />
+                    <frame duration="1" hotspotX="0.505495" hotspotY="0.505495" />
                 </animation>
             </animation-folder>
         </object-type>
         <object-type name="PlayerRed" sid="8232766166235457">
             <plugin id="Sprite" />
             <animation-folder expanded="1">
-                <animation framecount="3" loop="0" name="Default" pingpong="0" repeatcount="0" repeatto="0" sid="650380074388251" speed="0">
+                <animation framecount="4" loop="0" name="Default" pingpong="0" repeatcount="0" repeatto="0" sid="650380074388251" speed="0">
                     <frame duration="1" hotspotX="0.50505" hotspotY="0.506667" />
                     <frame duration="1" hotspotX="0.5" hotspotY="0.506667" />
                     <frame duration="1" hotspotX="0.5" hotspotY="0.506667" />
+                    <frame duration="1" hotspotX="0.505495" hotspotY="0.505495" />
                 </animation>
             </animation-folder>
         </object-type>
-        <object-type name="PlayerGod" sid="9850778277152552">
+        <object-type name="PlayerYellow" sid="9850778277152552">
             <plugin id="Sprite" />
             <animation-folder expanded="1">
-                <animation framecount="3" loop="0" name="Default" pingpong="0" repeatcount="0" repeatto="0" sid="8061757048027756" speed="0">
+                <animation framecount="4" loop="0" name="Default" pingpong="0" repeatcount="0" repeatto="0" sid="8061757048027756" speed="0">
                     <frame duration="1" hotspotX="0.50505" hotspotY="0.506667" />
                     <frame duration="1" hotspotX="0.5" hotspotY="0.506667" />
                     <frame duration="1" hotspotX="0.5" hotspotY="0.506667" />
+                    <frame duration="1" hotspotX="0.505495" hotspotY="0.505495" />
                 </animation>
             </animation-folder>
         </object-type>
@@ -143,7 +159,7 @@
                 </animation>
             </animation-folder>
         </object-type>
-        <object-type name="EnemyGod" sid="7011432646785848">
+        <object-type name="EnemyBlack" sid="7011432646785848">
             <plugin id="Sprite" />
             <animation-folder expanded="1">
                 <animation framecount="5" loop="0" name="Default" pingpong="0" repeatcount="0" repeatto="0" sid="2355785269745424" speed="0">
@@ -167,14 +183,56 @@
         <object-type name="BoxVersion" sid="6693818576089407">
             <plugin id="Text" />
         </object-type>
+        <object-type name="LaserBlue" sid="7367500997346642">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Bullet" sid="7386839237856158">
+                    <behavior id="Bullet" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder expanded="1">
+                <animation framecount="2" loop="1" name="ShortWeak" pingpong="0" repeatcount="0" repeatto="0" sid="425593764183002" speed="5">
+                    <frame duration="1" hotspotX="0.538462" hotspotY="0.513514" />
+                    <frame duration="1" hotspotX="0.555556" hotspotY="0.513514" />
+                </animation>
+                <animation framecount="2" loop="1" name="ShortNormal" pingpong="0" repeatcount="0" repeatto="0" sid="9837847181522691" speed="5">
+                    <frame duration="1" hotspotX="0.538462" hotspotY="0.513514" />
+                    <frame duration="1" hotspotX="0.555556" hotspotY="0.513514" />
+                </animation>
+                <animation framecount="2" loop="1" name="ShortStrong" pingpong="0" repeatcount="0" repeatto="0" sid="6761392330775309" speed="5">
+                    <frame duration="1" hotspotX="0.538462" hotspotY="0.513514" />
+                    <frame duration="1" hotspotX="0.555556" hotspotY="0.513514" />
+                </animation>
+                <animation framecount="2" loop="1" name="LongWeak" pingpong="0" repeatcount="0" repeatto="0" sid="2055944651589541" speed="5">
+                    <frame duration="1" hotspotX="0.538462" hotspotY="0.508772" />
+                    <frame duration="1" hotspotX="0.555556" hotspotY="0.508772" />
+                </animation>
+                <animation framecount="2" loop="1" name="LongNormal" pingpong="0" repeatcount="0" repeatto="0" sid="1161254695036293" speed="5">
+                    <frame duration="1" hotspotX="0.538462" hotspotY="0.508772" />
+                    <frame duration="1" hotspotX="0.555556" hotspotY="0.508772" />
+                </animation>
+                <animation framecount="2" loop="1" name="LongStrong" pingpong="0" repeatcount="0" repeatto="0" sid="9934547889159297" speed="5">
+                    <frame duration="1" hotspotX="0.538462" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.555556" hotspotY="0.5" />
+                </animation>
+                <animation framecount="2" loop="1" name="ExplodeOne" pingpong="0" repeatcount="0" repeatto="0" sid="3087565777786658" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+                <animation framecount="2" loop="1" name="ExplodeTwo" pingpong="0" repeatcount="0" repeatto="0" sid="6739390819811283" speed="5">
+                    <frame duration="1" hotspotX="0.513514" hotspotY="0.513514" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.513514" />
+                </animation>
+            </animation-folder>
+        </object-type>
     </object-folder>
     <families>
         <family name="Player" plugin-id="Sprite" sid="2169998369894082">
             <members>
                 <member>PlayerBlue</member>
-                <member>PlayerGod</member>
                 <member>PlayerGreen</member>
                 <member>PlayerRed</member>
+                <member>PlayerYellow</member>
             </members>
             <behaviors>
                 <behavior-type name="8Direction" sid="3377516809225082">
@@ -184,10 +242,15 @@
         </family>
         <family name="Enemy" plugin-id="Sprite" sid="7753305561716257">
             <members>
+                <member>EnemyBlack</member>
                 <member>EnemyBlue</member>
-                <member>EnemyGod</member>
                 <member>EnemyGreen</member>
                 <member>EnemyRed</member>
+            </members>
+        </family>
+        <family name="Laser" plugin-id="Sprite" sid="2617451562061026">
+            <members>
+                <member>LaserBlue</member>
             </members>
         </family>
     </families>
