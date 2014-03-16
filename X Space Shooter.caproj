@@ -11,6 +11,7 @@
     <saved-with-version>15600</saved-with-version>
     <used-plugins>
         <plugin author="Scirra" id="Browser" version="1">Browser</plugin>
+        <plugin author="Scirra" id="Function" version="1">Function</plugin>
         <plugin author="Scirra" id="Keyboard" version="1">Keyboard</plugin>
         <plugin author="Scirra" id="Mouse" version="1">Mouse</plugin>
         <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
@@ -183,19 +184,10 @@
         <object-type name="BoxVersion" sid="6693818576089407">
             <plugin id="Text" />
         </object-type>
-        <object-type name="LaserBlue" sid="7367500997346642">
+        <object-type name="PlayerLaserBlue" sid="7367500997346642">
             <plugin id="Sprite" />
-            <behaviors>
-                <behavior-type name="Bullet" sid="7386839237856158">
-                    <behavior id="Bullet" />
-                </behavior-type>
-            </behaviors>
             <animation-folder expanded="1">
-                <animation framecount="2" loop="1" name="ShortWeak" pingpong="0" repeatcount="0" repeatto="0" sid="425593764183002" speed="5">
-                    <frame duration="1" hotspotX="0.538462" hotspotY="0.513514" />
-                    <frame duration="1" hotspotX="0.555556" hotspotY="0.513514" />
-                </animation>
-                <animation framecount="2" loop="1" name="ShortNormal" pingpong="0" repeatcount="0" repeatto="0" sid="9837847181522691" speed="5">
+                <animation framecount="2" loop="1" name="ShortWeak" pingpong="0" repeatcount="0" repeatto="0" sid="9837847181522691" speed="5">
                     <frame duration="1" hotspotX="0.538462" hotspotY="0.513514" />
                     <frame duration="1" hotspotX="0.555556" hotspotY="0.513514" />
                 </animation>
@@ -203,11 +195,7 @@
                     <frame duration="1" hotspotX="0.538462" hotspotY="0.513514" />
                     <frame duration="1" hotspotX="0.555556" hotspotY="0.513514" />
                 </animation>
-                <animation framecount="2" loop="1" name="LongWeak" pingpong="0" repeatcount="0" repeatto="0" sid="2055944651589541" speed="5">
-                    <frame duration="1" hotspotX="0.538462" hotspotY="0.508772" />
-                    <frame duration="1" hotspotX="0.555556" hotspotY="0.508772" />
-                </animation>
-                <animation framecount="2" loop="1" name="LongNormal" pingpong="0" repeatcount="0" repeatto="0" sid="1161254695036293" speed="5">
+                <animation framecount="2" loop="1" name="LongWeak" pingpong="0" repeatcount="0" repeatto="0" sid="1161254695036293" speed="5">
                     <frame duration="1" hotspotX="0.538462" hotspotY="0.508772" />
                     <frame duration="1" hotspotX="0.555556" hotspotY="0.508772" />
                 </animation>
@@ -222,6 +210,22 @@
                 <animation framecount="2" loop="1" name="ExplodeTwo" pingpong="0" repeatcount="0" repeatto="0" sid="6739390819811283" speed="5">
                     <frame duration="1" hotspotX="0.513514" hotspotY="0.513514" />
                     <frame duration="1" hotspotX="0.5" hotspotY="0.513514" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Function" sid="6332160846824925">
+            <plugin id="Function" />
+        </object-type>
+        <object-type name="EnemyLaserBlue" sid="9441336189927139">
+            <plugin id="Sprite" />
+            <animation-folder expanded="1">
+                <animation framecount="2" loop="1" name="Short" pingpong="0" repeatcount="0" repeatto="0" sid="2344856148928457" speed="5">
+                    <frame duration="1" hotspotX="0.538462" hotspotY="0.513514" />
+                    <frame duration="1" hotspotX="0.555556" hotspotY="0.513514" />
+                </animation>
+                <animation framecount="2" loop="0" name="Long" pingpong="0" repeatcount="1" repeatto="0" sid="7155266667722573" speed="5">
+                    <frame duration="1" hotspotX="0.538462" hotspotY="0.508772" />
+                    <frame duration="1" hotspotX="0.555556" hotspotY="0.508772" />
                 </animation>
             </animation-folder>
         </object-type>
@@ -247,10 +251,28 @@
                 <member>EnemyGreen</member>
                 <member>EnemyRed</member>
             </members>
+            <instance-variables>
+                <instance-variable name="direction" sid="6927409084292064" type="number" />
+            </instance-variables>
+            <behaviors>
+                <behavior-type name="8Direction" sid="8410593738857723">
+                    <behavior id="EightDir" />
+                </behavior-type>
+            </behaviors>
         </family>
-        <family name="Laser" plugin-id="Sprite" sid="2617451562061026">
+        <family name="PlayerLaser" plugin-id="Sprite" sid="2617451562061026">
             <members>
-                <member>LaserBlue</member>
+                <member>PlayerLaserBlue</member>
+            </members>
+            <behaviors>
+                <behavior-type name="Bullet" sid="7408360991193635">
+                    <behavior id="Bullet" />
+                </behavior-type>
+            </behaviors>
+        </family>
+        <family name="EnemyLaser" plugin-id="Sprite" sid="8156844891006306">
+            <members>
+                <member>EnemyLaserBlue</member>
             </members>
         </family>
     </families>
@@ -269,6 +291,7 @@
         </global-instance>
         <global-instance type="Mouse" uid="15" />
         <global-instance type="Browser" uid="16" />
+        <global-instance type="Function" uid="20" />
     </global-instances>
     <sounds-folder expanded="1" />
     <music-folder expanded="1" />
