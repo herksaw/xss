@@ -2,7 +2,7 @@
 <c2project>
     <name>X Space Shooter</name>
     <description>A top-down shoot&apos;em up space shooter.</description>
-    <version>0.0.1.0</version>
+    <version>0.0.1.2</version>
     <author>Conodene</author>
     <author-email></author-email>
     <author-website></author-website>
@@ -442,6 +442,7 @@
                 <instance-variable name="isTyped" sid="5531167489316557" type="number" />
                 <instance-variable name="timerMoving" sid="6451764635475167" type="number" />
                 <instance-variable name="timerShooting" sid="2907807159806518" type="number" />
+                <instance-variable name="color" sid="480290371661272" type="string" />
             </instance-variables>
             <behaviors>
                 <behavior-type name="8Direction" sid="8410593738857723">
@@ -467,6 +468,11 @@
                 <member>EnemyLaserGreen</member>
                 <member>EnemyLaserRed</member>
             </members>
+            <behaviors>
+                <behavior-type name="Bullet" sid="359165953134269">
+                    <behavior id="Bullet" />
+                </behavior-type>
+            </behaviors>
         </family>
         <family name="Meteor" plugin-id="Sprite" sid="4719364866893697">
             <members>

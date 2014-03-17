@@ -5,7 +5,7 @@
     <events>
         <variable constant="0" name="EnemyTimer" sid="9652536906683443" static="0" type="number">2</variable>
         <variable constant="0" name="HostileVariation" sid="3357982535232257" static="0" type="number">0</variable>
-        <variable constant="0" name="PlayerPlane" sid="7835224101687629" static="0" type="text">Blue</variable>
+        <variable constant="0" name="PlayerPlane" sid="7835224101687629" static="0" type="text">blue</variable>
         <variable constant="0" name="UseMouse" sid="3565339359927593" static="0" type="number">0</variable>
         <variable constant="0" name="CurrentMiles" sid="2662531078757799" static="0" type="number">0</variable>
         <variable constant="0" name="CurrentLevel" sid="3735789936954935" static="0" type="number">0</variable>
@@ -451,9 +451,9 @@
                                     <param id="2" name="X">floor(random(0, LayoutWidth - (Enemy.Width / 2)))</param>
                                     <param id="3" name="Y">-400</param>
                                 </action>
-                                <action id="-10" name="Set value" sid="1111518868118102" type="Enemy">
-                                    <param id="0" name="Instance variable">timerMoving</param>
-                                    <param id="1" name="Value">floor(random(0, 2))</param>
+                                <action id="-10" name="Set value" sid="2643626531097757" type="Enemy">
+                                    <param id="0" name="Instance variable">color</param>
+                                    <param id="1" name="Value">&quot;blue&quot;</param>
                                 </action>
                             </actions>
                         </event-block>
@@ -472,9 +472,9 @@
                                     <param id="2" name="X">floor(random(0, LayoutWidth - (Enemy.Width / 2)))</param>
                                     <param id="3" name="Y">-400</param>
                                 </action>
-                                <action id="-10" name="Set value" sid="8641855272503593" type="Enemy">
-                                    <param id="0" name="Instance variable">timerMoving</param>
-                                    <param id="1" name="Value">floor(random(0, 2))</param>
+                                <action id="-10" name="Set value" sid="3535529306807439" type="Enemy">
+                                    <param id="0" name="Instance variable">color</param>
+                                    <param id="1" name="Value">&quot;black&quot;</param>
                                 </action>
                             </actions>
                         </event-block>
@@ -493,9 +493,9 @@
                                     <param id="2" name="X">floor(random(0, LayoutWidth - (Enemy.Width / 2)))</param>
                                     <param id="3" name="Y">-400</param>
                                 </action>
-                                <action id="-10" name="Set value" sid="7470136367263136" type="Enemy">
-                                    <param id="0" name="Instance variable">timerMoving</param>
-                                    <param id="1" name="Value">floor(random(0, 2))</param>
+                                <action id="-10" name="Set value" sid="5173347913453309" type="Enemy">
+                                    <param id="0" name="Instance variable">color</param>
+                                    <param id="1" name="Value">&quot;green&quot;</param>
                                 </action>
                             </actions>
                         </event-block>
@@ -514,9 +514,9 @@
                                     <param id="2" name="X">floor(random(0, LayoutWidth - (Enemy.Width / 2)))</param>
                                     <param id="3" name="Y">-400</param>
                                 </action>
-                                <action id="-10" name="Set value" sid="153279054874355" type="Enemy">
-                                    <param id="0" name="Instance variable">timerMoving</param>
-                                    <param id="1" name="Value">floor(random(0, 2))</param>
+                                <action id="-10" name="Set value" sid="8708013024204244" type="Enemy">
+                                    <param id="0" name="Instance variable">color</param>
+                                    <param id="1" name="Value">&quot;red&quot;</param>
                                 </action>
                             </actions>
                         </event-block>
@@ -764,15 +764,20 @@
                             <param id="0" name="Instance variable">timerMoving</param>
                             <param id="1" name="Value">1</param>
                         </action>
+                        <action id="-12" name="Subtract from" sid="4280084577614355" type="Enemy">
+                            <param id="0" name="Instance variable">timerShooting</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
                     </actions>
                 </event-block>
                 <event-block sid="7309124173793616">
                     <conditions>
                         <condition id="-7" name="Compare instance variable" sid="3816448658459326" type="Enemy">
                             <param id="0" name="Instance variable">timerMoving</param>
-                            <param id="1" name="Comparison">2</param>
+                            <param id="1" name="Comparison">3</param>
                             <param id="2" name="Value">0</param>
                         </condition>
+                        <condition id="-3" name="Is on-screen" sid="2721170416071222" type="Enemy" />
                     </conditions>
                     <actions>
                         <action id="-10" name="Set value" sid="5581924280034493" type="Enemy">
@@ -782,6 +787,26 @@
                         <action id="-10" name="Set value" sid="3137305775660783" type="Enemy">
                             <param id="0" name="Instance variable">timerMoving</param>
                             <param id="1" name="Value">floor(random(0, 2))</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="8451839050995461">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="2542086787095548" type="Enemy">
+                            <param id="0" name="Instance variable">timerShooting</param>
+                            <param id="1" name="Comparison">3</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                        <condition id="-3" name="Is on-screen" sid="8559124106236352" type="Enemy" />
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="6275497114664993" type="Function">
+                            <param id="0" name="Name">&quot;EnemyShooting&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                        <action id="-10" name="Set value" sid="4969452772200727" type="Enemy">
+                            <param id="0" name="Instance variable">timerShooting</param>
+                            <param id="1" name="Value">floor(random(2, 5))</param>
                         </action>
                     </actions>
                 </event-block>
@@ -1152,7 +1177,7 @@
                                 <condition id="-14" name="Compare variable" sid="204007510732455" type="System">
                                     <param id="0" name="Variable">PlayerPlane</param>
                                     <param id="1" name="Comparison">0</param>
-                                    <param id="2" name="Value">&quot;Blue&quot;</param>
+                                    <param id="2" name="Value">&quot;blue&quot;</param>
                                 </condition>
                             </conditions>
                             <actions>
@@ -1164,6 +1189,76 @@
                                 </action>
                                 <action behavior="Bullet" id="3" name="Set angle of motion" sid="7355139433197888" type="PlayerLaserBlue">
                                     <param id="0" name="Angle">270</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="1355798328753808">
+                    <conditions>
+                        <condition id="0" name="On function" sid="4775801779988557" type="Function">
+                            <param id="0" name="Name">&quot;EnemyShooting&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="7118070978648043">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="2042345445541927" type="Enemy">
+                                    <param id="0" name="Instance variable">color</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">&quot;blue&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Create object" sid="4040089462672114" type="System">
+                                    <param id="0" name="Object to create">EnemyLaserBlue</param>
+                                    <param id="1" name="Layer">&quot;Game&quot;</param>
+                                    <param id="2" name="X">Enemy.X</param>
+                                    <param id="3" name="Y">Enemy.Y + PlayerLaser.Height</param>
+                                </action>
+                                <action behavior="Bullet" id="3" name="Set angle of motion" sid="3193795595999486" type="EnemyLaserBlue">
+                                    <param id="0" name="Angle">90</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="4897058310602164">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="9414864457828047" type="Enemy">
+                                    <param id="0" name="Instance variable">color</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">&quot;green&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Create object" sid="3929115080438275" type="System">
+                                    <param id="0" name="Object to create">EnemyLaserGreen</param>
+                                    <param id="1" name="Layer">&quot;Game&quot;</param>
+                                    <param id="2" name="X">Enemy.X</param>
+                                    <param id="3" name="Y">Enemy.Y + PlayerLaser.Height</param>
+                                </action>
+                                <action behavior="Bullet" id="3" name="Set angle of motion" sid="751349228432081" type="EnemyLaserGreen">
+                                    <param id="0" name="Angle">90</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="5373922946482859">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="7357879622124858" type="Enemy">
+                                    <param id="0" name="Instance variable">color</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">&quot;red&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Create object" sid="2863324308836567" type="System">
+                                    <param id="0" name="Object to create">EnemyLaserRed</param>
+                                    <param id="1" name="Layer">&quot;Game&quot;</param>
+                                    <param id="2" name="X">Enemy.X</param>
+                                    <param id="3" name="Y">Enemy.Y + PlayerLaser.Height</param>
+                                </action>
+                                <action behavior="Bullet" id="3" name="Set angle of motion" sid="776294311902623" type="EnemyLaserRed">
+                                    <param id="0" name="Angle">90</param>
                                 </action>
                             </actions>
                         </event-block>

@@ -317,6 +317,7 @@
                         <isTyped>0</isTyped>
                         <timerMoving>0</timerMoving>
                         <timerShooting>0</timerShooting>
+                        <color></color>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="8Direction">
@@ -359,6 +360,7 @@
                         <isTyped>0</isTyped>
                         <timerMoving>0</timerMoving>
                         <timerShooting>0</timerShooting>
+                        <color></color>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="8Direction">
@@ -401,6 +403,7 @@
                         <isTyped>0</isTyped>
                         <timerMoving>0</timerMoving>
                         <timerShooting>0</timerShooting>
+                        <color></color>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="8Direction">
@@ -443,6 +446,7 @@
                         <isTyped>0</isTyped>
                         <timerMoving>0</timerMoving>
                         <timerShooting>0</timerShooting>
+                        <color></color>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="8Direction">
@@ -513,6 +517,18 @@
                         <initial-frame>0</initial-frame>
                         <collisions>Enabled</collisions>
                     </properties>
+                    <behavior-instances>
+                        <behavior-instance type="Bullet">
+                            <properties>
+                                <speed>400</speed>
+                                <acceleration>0</acceleration>
+                                <gravity>0</gravity>
+                                <bounce-off-solids>No</bounce-off-solids>
+                                <set-angle>No</set-angle>
+                                <initial-state>Enabled</initial-state>
+                            </properties>
+                        </behavior-instance>
+                    </behavior-instances>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
@@ -569,6 +585,18 @@
                         <initial-frame>0</initial-frame>
                         <collisions>Enabled</collisions>
                     </properties>
+                    <behavior-instances>
+                        <behavior-instance type="Bullet">
+                            <properties>
+                                <speed>400</speed>
+                                <acceleration>0</acceleration>
+                                <gravity>0</gravity>
+                                <bounce-off-solids>No</bounce-off-solids>
+                                <set-angle>No</set-angle>
+                                <initial-state>Enabled</initial-state>
+                            </properties>
+                        </behavior-instance>
+                    </behavior-instances>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
@@ -625,6 +653,18 @@
                         <initial-frame>0</initial-frame>
                         <collisions>Enabled</collisions>
                     </properties>
+                    <behavior-instances>
+                        <behavior-instance type="Bullet">
+                            <properties>
+                                <speed>400</speed>
+                                <acceleration>0</acceleration>
+                                <gravity>0</gravity>
+                                <bounce-off-solids>No</bounce-off-solids>
+                                <set-angle>No</set-angle>
+                                <initial-state>Enabled</initial-state>
+                            </properties>
+                        </behavior-instance>
+                    </behavior-instances>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
