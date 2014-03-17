@@ -24,5 +24,6 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <family expanded="0" name="Enemy" />
         <family expanded="0" name="PlayerLaser" />
         <family expanded="0" name="EnemyLaser" />
+        <family expanded="0" name="Meteor" />
     </families-expanded>
 </c2uistate>

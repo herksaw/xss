@@ -2,7 +2,7 @@
 <c2project>
     <name>X Space Shooter</name>
     <description>A top-down shoot&apos;em up space shooter.</description>
-    <version>0.0.0.9</version>
+    <version>0.0.1.0</version>
     <author>Conodene</author>
     <author-email></author-email>
     <author-website></author-website>
@@ -22,6 +22,7 @@
     <used-behaviors>
         <behavior author="Scirra" id="Bullet" version="1">Bullet</behavior>
         <behavior author="Scirra" id="EightDir" version="1">8 Direction</behavior>
+        <behavior author="Scirra" id="Rotate" version="1">Rotate</behavior>
         <behavior author="Scirra" id="bound" version="1">Bound to layout</behavior>
     </used-behaviors>
     <used-effects />
@@ -385,6 +386,28 @@
                 </animation>
             </animation-folder>
         </object-type>
+        <object-type name="MeteorBrown" sid="8909045628703759">
+            <plugin id="Sprite" />
+            <animation-folder expanded="1">
+                <animation framecount="4" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="4542747094306089" speed="5">
+                    <frame duration="1" hotspotX="0.504951" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.505618" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="MeteorGrey" sid="2620425068885328">
+            <plugin id="Sprite" />
+            <animation-folder expanded="1">
+                <animation framecount="4" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="3663391432087581" speed="5">
+                    <frame duration="1" hotspotX="0.504951" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.505618" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
     </object-folder>
     <families>
         <family name="Player" plugin-id="Sprite" sid="2169998369894082">
@@ -439,6 +462,24 @@
                 <member>EnemyLaserGreen</member>
                 <member>EnemyLaserRed</member>
             </members>
+        </family>
+        <family name="Meteor" plugin-id="Sprite" sid="4719364866893697">
+            <members>
+                <member>MeteorBrown</member>
+                <member>MeteorGrey</member>
+            </members>
+            <instance-variables>
+                <instance-variable name="type" sid="3717576386723269" type="number" />
+                <instance-variable name="isTyped" sid="1801963477401744" type="number" />
+            </instance-variables>
+            <behaviors>
+                <behavior-type name="Bullet" sid="5147492394926634">
+                    <behavior id="Bullet" />
+                </behavior-type>
+                <behavior-type name="Rotate" sid="3020334946640862">
+                    <behavior id="Rotate" />
+                </behavior-type>
+            </behaviors>
         </family>
     </families>
     <layout-folder expanded="1">
