@@ -154,7 +154,7 @@
                     <behavior-instances>
                         <behavior-instance type="8Direction">
                             <properties>
-                                <max-speed>300</max-speed>
+                                <max-speed>400</max-speed>
                                 <acceleration>800</acceleration>
                                 <deceleration>600</deceleration>
                                 <directions>8 directions</directions>
@@ -315,6 +315,8 @@
                         <direction>0</direction>
                         <type>0</type>
                         <isTyped>0</isTyped>
+                        <timerMoving>0</timerMoving>
+                        <timerShooting>0</timerShooting>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="8Direction">
@@ -355,6 +357,8 @@
                         <direction>0</direction>
                         <type>0</type>
                         <isTyped>0</isTyped>
+                        <timerMoving>0</timerMoving>
+                        <timerShooting>0</timerShooting>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="8Direction">
@@ -395,6 +399,8 @@
                         <direction>0</direction>
                         <type>0</type>
                         <isTyped>0</isTyped>
+                        <timerMoving>0</timerMoving>
+                        <timerShooting>0</timerShooting>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="8Direction">
@@ -435,6 +441,8 @@
                         <direction>0</direction>
                         <type>0</type>
                         <isTyped>0</isTyped>
+                        <timerMoving>0</timerMoving>
+                        <timerShooting>0</timerShooting>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="8Direction">
@@ -802,6 +810,33 @@
                     <effect-fallback>0</effect-fallback>
                     <world>
                         <x>380</x>
+                        <y>785</y>
+                        <z>0</z>
+                        <width>200</width>
+                        <height>30</height>
+                        <depth>0</depth>
+                        <hotspotX>0.5</hotspotX>
+                        <hotspotY>0.5</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="BoxDebug" uid="29">
+                    <properties>
+                        <text>Debug</text>
+                        <initial-visibility>Visible</initial-visibility>
+                        <font>Arial,-16</font>
+                        <color>0,0,0</color>
+                        <horizontal-alignment>Center</horizontal-alignment>
+                        <vertical-alignment>Center</vertical-alignment>
+                        <hotspot>Center</hotspot>
+                        <wrapping>Word</wrapping>
+                        <line-height>0</line-height>
+                    </properties>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>240</x>
                         <y>785</y>
                         <z>0</z>
                         <width>200</width>

@@ -408,6 +408,9 @@
                 </animation>
             </animation-folder>
         </object-type>
+        <object-type name="BoxDebug" sid="3934854204587669">
+            <plugin id="Text" />
+        </object-type>
     </object-folder>
     <families>
         <family name="Player" plugin-id="Sprite" sid="2169998369894082">
@@ -437,6 +440,8 @@
                 <instance-variable name="direction" sid="6927409084292064" type="number" />
                 <instance-variable name="type" sid="5441058227114249" type="number" />
                 <instance-variable name="isTyped" sid="5531167489316557" type="number" />
+                <instance-variable name="timerMoving" sid="6451764635475167" type="number" />
+                <instance-variable name="timerShooting" sid="2907807159806518" type="number" />
             </instance-variables>
             <behaviors>
                 <behavior-type name="8Direction" sid="8410593738857723">
