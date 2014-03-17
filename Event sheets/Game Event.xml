@@ -955,6 +955,12 @@
                         </condition>
                     </conditions>
                     <actions>
+                        <action id="-3" name="Create object" sid="1027501192898211" type="System">
+                            <param id="0" name="Object to create">Explosion</param>
+                            <param id="1" name="Layer">&quot;Game&quot;</param>
+                            <param id="2" name="X">Enemy.X</param>
+                            <param id="3" name="Y">Enemy.Y</param>
+                        </action>
                         <action id="-9" name="Destroy" sid="9054915720342099" type="PlayerLaser" />
                         <action id="-9" name="Destroy" sid="1211745267587067" type="Enemy" />
                     </actions>
@@ -977,6 +983,16 @@
         </event-group>
         <event-group description="" sid="3615245158250845" title="Memory">
             <sub-events>
+                <event-block sid="1718859135310202">
+                    <conditions>
+                        <condition id="4" name="On finished" sid="659744652684018" type="Explosion">
+                            <param id="0" name="Animation">&quot;Default&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="1655154096953865" type="Explosion" />
+                    </actions>
+                </event-block>
                 <event-block sid="5630832033703638">
                     <conditions>
                         <condition id="-4" name="Is outside layout" sid="9143805842773414" type="Player" />
